@@ -12,7 +12,6 @@ const DeployContract = ({account, central}) => {
         alert(`An error occurred while connecting to MetaMask: ${error.message}`);
     }
 
-
     const fetchContractAddress = async () => {
         try{
             if(account){
@@ -25,7 +24,6 @@ const DeployContract = ({account, central}) => {
             showErrorMessage(error);
         }
     }
-
 
     const createContract = async() =>{
         try{
@@ -46,7 +44,6 @@ const DeployContract = ({account, central}) => {
         }
         
     }
-
 
     return (
         <div className='DeployContract'>

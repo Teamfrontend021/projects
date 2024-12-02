@@ -2,7 +2,6 @@ import React, {useState, useRef} from 'react'
 // import { Html5QrcodeScanner } from 'html5-qrcode';
 // import { useEffect } from 'react';
 // import QRCode from "qrcode";
-import QrScanner from 'qr-scanner';
 
 const VerifyProduct = ({ provider, central }) => {
 
@@ -41,22 +40,6 @@ const VerifyProduct = ({ provider, central }) => {
         
     }
 
-    const [file, setFile] = useState(null);
-    const [data, setData] = useState(null);
-    const fileRef =useRef();
-
-    const handleClick = () => {
-        fileRef.current.click();
-    };
-
-    const handleChange = async (e) => {
-        const file = e.target.file[0];
-        setFile(file);
-        const result = await QrScanner.scanImage(file);
-        setData(result);
-    };
-
-    
 
     return (
         <div className='VerifyProduct'>
@@ -71,28 +54,6 @@ const VerifyProduct = ({ provider, central }) => {
                     <input type="text"  className='form__input' value={productId} onChange={handleInput2Change} />
                 </div>
                 
-          
-                <div className='form__content'>
-                    <h2 className='text-center mb-4'> Scan Your QR Code</h2>
-                    <div className='card border-0'>
-                        <div className="card-body">
-                            <button type='button' onClick={handleClick} className='btn btn-success'>
-                                Scan QRCode
-                            </button>
-                            <input type="file"
-                                ref = {fileRef}
-                                onChange={handleChange}
-                                accept=".png, .jpg, .jpeg" 
-                                className='d-none' />
-                            <div className='mt-4'>
-                                {file && <img src={URL.createObjectURL(file)} alt="QR Code" />}
-                                {data && <p className="small mt-5">data: {data}</p>}
-                            </div>
-                        </div>
-                    </div>
-                    {/* {scannedData ? <p>Scanned data: {scannedData}</p> : <QRScanner onScan={handleScan} />} */}
-                </div>
-
                 <button className='button__toggle form__button' onClick={checkProduct}>Verify</button>
                 {productStatus && <p>Result: {productStatus}</p>}
             </div>

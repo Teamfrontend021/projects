@@ -1,0 +1,13 @@
+{
+    "1": {
+      "central": {
+        "address": "0xYourContractAddressOnMainnet"
+      }
+    },
+    "3": {
+      "central": {
+        "address": "0xYourContractAddressOnRopsten"
+      }
+    }
+  }
+  

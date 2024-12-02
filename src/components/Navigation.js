@@ -22,8 +22,6 @@ const Navigation = ({ account, setAccount }) => {
         
     }
 
-    
-
     return (
         <nav className='nav container'>
             <a href="/" className="nav__logo">Product Verifier</a>
